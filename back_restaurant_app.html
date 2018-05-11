@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+        <style>
+            .myProgress {
+                    width: 100%;
+                    background-color: #ddd;
+                    height: 10px;
+            }
+                  
+            #imgPlatillosBar,  #imgBebidasBar {
+                    width: 0%;
+                    height: 10px;
+                    background-color: #4CAF50;
+            }
+        </style>
+
+        <div class="jumbotron">
+                <h3 class="text-center">Seccion- admin : formularios</h3>
+            </div>
+        <hr>
+    <div class="container">
+        <a class="btn btn-primary" href="./listadoPlatillos.html">Listado Platillo</a>
+        <a class="btn btn-primary" href="./listadoBebidas.html">Listado Bebidas</a>
+        <div class="btn-group btn-group-info pull-right">
+                <button class="btn btn-info" type="button" id="currentUser">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </button>
+                <button data-toggle="dropdown" class="btn btn-info dropdown-toggle" type="button"><span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" onClick="signOut()"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Salir</a>
+                    </li>
+                </ul>
+        </div>
+     
+        <hr>
+        <div id="myTabsWrapper">
+                <!-- Nav tabs -->
+                <ul id="myTabs" class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active">
+                    <a href="#formPlatillos" data-toggle="tab" data-height="true" aria-controls="formPlatillos" role="tab">form- Platillos</a>
+                  </li>
+                  <li role="presentation">
+                    <a href="#formBebidas" data-toggle="tab" data-height="true" aria-controls="formBebidas" role="tab">form- Bebidas</a>
+                  </li>
+                </ul>
+              
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="formPlatillos">
+                       <!-- Formulario Bebidas -->
+                        <h3>Formulario Platillos </h3>
+                        <hr>
+                        <div id="formCargarPlatillo">
+                                <input class="btn btn-default" type="file" name="imgPlatillo" onchange="visualizarImagenPlatillo()"><br><br>
+                                <img src="" alt="img_platillo" height="200" id="imgPlatilloId">
+                                <div class="myProgress">
+                                    <div id="imgPlatillosBar"></div>
+                                </div>
+                                <hr>
+                                    <form action="#" onSubmit="return cargarFormulario(event)" name="formularioPlatillos">
+                                        Nombre Imagen: <input type="text" class="form-control" type="text"  id="nombreImagenPlatillo" required readonly>
+                                        Enlace: <input class="form-control" type="text" name="imagenPlatillo" id="imagenPlatillo" readonly>
+                                                <hr>
+                                        nombre: <input class="form-control" type="text" name="nombrePlatillo" id="nombrePlatillo" required>
+                                        <br>
+                                        Descripcion: <textarea class="form-control" name="descripcionPlatillo" id="descripcionPlatillo" cols="20" rows="2" required></textarea>
+                                        <br>
+                                        Cantidad: <input class="form-control" type="number" min="0" max="10" name="cantidadPlatillo" id="cantidadPlatillo">
+                                        <br>
+                                            Precio: <input class="form-control" type="text" name="precioPlatillo" id="precioPlatillo">
+                                        <br>
+                                    
+                                        <input class="btn btn-success" type="submit" value="Guardar">
+                                    </form>
+                                    <hr>
+                        </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="formBebidas">
+                       <!-- Formulario Bebidas -->
+                        <h3>Formulario Bebidas </h3>
+                        <hr>
+                        <div id="formCargarBebidas">
+                                <input class="btn btn-default" type="file" id="imgBebida" onChange="visualizarImagenBebidas()"><br><br>
+                                <img src="" alt="img_Bebida" height="200" id="imgBebidaId">
+                                <div class="myProgress">
+                                    <div id="imgBebidasBar"></div>
+                                </div>
+                                <hr>
+                                    <form action="#" onSubmit="return cargarFormularioBebidas(event)" name="formularioBebidas">
+                                        Enlace de Imagen: <input class="form-control" type="text" name="imagenBebidas" id="imagenBebidas" readonly>
+                                                <hr>
+                                        nombre: <input class="form-control" type="text" name="nombreBebidas" id="nombreBebidas" required>
+                                        <br>
+                                        Descripcion: <textarea class="form-control" name="descripcionBebidas" id="descripcionBebidas" cols="20" rows="2" required></textarea>
+                                        <br>
+                                        Cantidad: <input class="form-control" type="number" min="0" max="10" name="cantidadBebidas" id="cantidadBebidas">
+                                        <br>
+                                            Precio: <input class="form-control" type="text" name="precioBebidas" id="precioBebidas">
+                                        <br>
+                                    
+                                        <input class="btn btn-success" type="submit" value="Guardar">
+                                    </form>
+                                    <hr>
+                        </div>
+                  </div>
+                </div><!-- tab content-->
+              
+              </div><!-- myTabsWrapper -->
+
+
+       
+     
+    </div>
+    
+
+     <!-- V3 version -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.15/bootstrap-native.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Listado Platillos - Admin</title>
+</head>
+<body onLoad='imprimirListadoBebidas()'>
+        <div class="jumbotron">
+                <h3 class="text-center">Seccion- admin</h3>
+            </div>
+        <hr>
+    <div class="container">
+            <a class="btn btn-primary" href="./back_restaurant_app.html">formularios</a>
+                <button class="btn btn-danger pull-right" onClick="signOut()">Salir</button>
+            <hr>
+                 <h2>Listado bebidas admin</h2> 
+            <hr>
+            <div id="listadoBebidas">
+                    <span id="LoadPreview_listBeb">...cargando</span>
+            </div>
+
+            <div name="modal_id" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- the .setContent() method will update this element's HTML -->
+                    </div>
+                    </div>
+            </div>
+                 
+
+    </div>
+    
+
+     <!-- V3 version -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.15/bootstrap-native.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
